@@ -36,12 +36,6 @@ if [ -z "$PLUGIN_ATTEMPTS" ]; then
     PLUGIN_ATTEMPTS=1
 fi
 
-# If custom arguments are specified, make use of them.
-if [ ! -z "$PLUGIN_CUSTOM_ARGUMENTS" ]; then
-
-    PLUGIN_CUSTOM_ARGUMENTS="$PLUGIN_CUSTOM_ARGUMENTS"
-fi
-
 # Repeat the upload as long as specified.
 while [ $PLUGIN_ATTEMPTS -gt 0 ]; do
 
