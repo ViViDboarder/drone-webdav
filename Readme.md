@@ -34,6 +34,6 @@ pipeline:
 
 The following environment variables can be used for further cutomization:
 
-``PLUGIN_PROXY_URL`` - May be used to specify a proxy (e.g. ``socks5://{ip_adress}:{port}``)<br>
+``PLUGIN_PROXY_URL`` - May be used to specify a proxy (e.g. ``socks5://{ip_address}:{port}``)<br>
 ``PLUGIN_TIMEOUT`` - Defines a timeout (in seconds) to stop the upload after a certain time. The default value is 30 minutes.<br>
 ``PLUGIN_ATTEMPTS`` - Defines how often a failed upload should be retried. Normally there is only one upload attempt.
