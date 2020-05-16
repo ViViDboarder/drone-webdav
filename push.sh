@@ -39,29 +39,26 @@ fi
 # Repeat the upload as long as specified.
 while [ $PLUGIN_ATTEMPTS -gt 0 ]; do
 
-  # Uploading the file
-  curl $PLUGIN_PROXY_URL $PLUGIN_TIMEOUT $PLUGIN_CUSTOM_ARGUMENTS --upload-file $PLUGIN_FILE $AUTH $PLUGIN_DESTINATION
+    # Uploading the file
+    curl $PLUGIN_PROXY_URL $PLUGIN_TIMEOUT $PLUGIN_CUSTOM_ARGUMENTS --upload-file $PLUGIN_FILE $AUTH $PLUGIN_DESTINATION && {
 
-  # Terminate the script as soon as the upload is successful
-  if [ $? -eq 0 ]; then
+        # Terminate the script as soon as the upload is successful
+        echo "[INFO] Upload was successful."
+        exit 0
 
-    echo "[INFO] Upload was successful."
-    exit 0
-
-  else
+    }
 
 	# Show messages in case uploads have failed
 	if [ $PLUGIN_ATTEMPTS -gt 1 ]; then
 
-		echo "[INFO] Upload failed. Attempting a new upload, if possible."
+        echo "[INFO] Upload failed. Attempting a new upload, if possible."
 	else
 
 		echo "[ERROR] All upload attempts have failed."
 	fi
 
-  fi
 
-  PLUGIN_ATTEMPTS=$((PLUGIN_ATTEMPTS-1))
+    PLUGIN_ATTEMPTS=$((PLUGIN_ATTEMPTS-1))
 
 done
 
