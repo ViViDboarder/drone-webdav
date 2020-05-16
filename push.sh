@@ -24,13 +24,10 @@ if [ ! -z "$PLUGIN_PROXY_URL" ]; then
     PLUGIN_PROXY_URL="--proxy ${PLUGIN_PROXY_URL}"
 fi
 
-# If a timeout is specified, make use of it. If none is defined, use a default value (30 seconds).
+# If a timeout is specified, make use of it.
 if [ ! -z "$PLUGIN_TIMEOUT" ]; then
 
     PLUGIN_TIMEOUT="--max-time ${PLUGIN_TIMEOUT}"
-else
-
-    PLUGIN_TIMEOUT="--max-time 1800"
 fi
 
 # Set PLUGIN_ATTEMPTS to one if nothing else is specified
@@ -39,11 +36,17 @@ if [ -z "$PLUGIN_ATTEMPTS" ]; then
     PLUGIN_ATTEMPTS=1
 fi
 
+# If custom arguments are specified, make use of them.
+if [ ! -z "$PLUGIN_CUSTOM_ARGUMENTS" ]; then
+
+    PLUGIN_CUSTOM_ARGUMENTS="$PLUGIN_CUSTOM_ARGUMENTS"
+fi
+
 # Repeat the upload as long as specified.
 while [ $PLUGIN_ATTEMPTS -gt 0 ]; do
 
   # Uploading the file
-  curl $PLUGIN_PROXY_URL --upload-file $PLUGIN_FILE $AUTH $PLUGIN_DESTINATION --progress-bar $PLUGIN_TIMEOUT
+  curl $PLUGIN_PROXY_URL $PLUGIN_TIMEOUT $PLUGIN_CUSTOM_ARGUMENTS --upload-file $PLUGIN_FILE $AUTH $PLUGIN_DESTINATION
 
   # Terminate the script as soon as the upload is successful
   if [ $? -eq 0 ]; then
@@ -59,7 +62,7 @@ while [ $PLUGIN_ATTEMPTS -gt 0 ]; do
 		echo "[INFO] Upload failed. Attempting a new upload, if possible."
 	else
 
-		echo "[INFO] All upload attempts have failed."
+		echo "[ERROR] All upload attempts have failed."
 	fi
 
   fi
