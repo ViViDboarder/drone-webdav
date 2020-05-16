@@ -48,14 +48,14 @@ while [ $PLUGIN_ATTEMPTS -gt 0 ]; do
 
     }
 
-	# Show messages in case uploads have failed
-	if [ $PLUGIN_ATTEMPTS -gt 1 ]; then
+    # Show messages in case uploads have failed
+    if [ $PLUGIN_ATTEMPTS -gt 1 ]; then
 
         echo "[INFO] Upload failed. Attempting a new upload, if possible."
-	else
+    else
 
-		echo "[ERROR] All upload attempts have failed."
-	fi
+        echo "[ERROR] All upload attempts have failed."
+    fi
 
 
     PLUGIN_ATTEMPTS=$((PLUGIN_ATTEMPTS-1))
