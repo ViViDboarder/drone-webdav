@@ -30,6 +30,13 @@ pipeline:
         target: PLUGIN_PASSWORD
 ```
 
+## FAQ
+
+#### How do I upload multiple files at once?
+Since this script uses curl to upload your files, you can use it's corresponding syntax.<br>
+An example, taken from the official [documentation](https://curl.haxx.se/docs/manpage.html#-T), would be to pass ``{dogs.png,cats.jpg}`` to ``PLUGIN_FILE``.
+
+
 ## Customization
 
 The following environment variables can be used for further cutomization:
