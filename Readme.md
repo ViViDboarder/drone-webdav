@@ -39,4 +39,4 @@ The following environment variables can be used for further cutomization:
 | ``PLUGIN_PROXY_URL``        | May be used to specify a proxy (e.g. ``socks5://{ip_address}:{port}``)                                   |
 | ``PLUGIN_TIMEOUT``          | Defines a timeout (in seconds) to stop the upload after a certain time.                                  |
 | ``PLUGIN_ATTEMPTS``         | Defines how often a failed upload should be retried. Normally there is only one upload attempt.          |
-| ``PLUGIN_CUSTOM_ARGUMENTS`` | Allows for adding custom arguments.                                                                      |
+| ``PLUGIN_CUSTOM_ARGUMENTS`` | Additional arguments to be passed to `curl`.                                                                      |
