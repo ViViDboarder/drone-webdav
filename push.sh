@@ -27,7 +27,10 @@ fi
 # If a timeout is specified, make use of it.
 if [ ! -z "$PLUGIN_TIMEOUT" ]; then
 
-    PLUGIN_TIMEOUT="--max-time '${PLUGIN_TIMEOUT}'"
+    #escape
+    PLUGIN_TIMEOUT=$(echo ${PLUGIN_TIMEOUT} | tr -d -C '[:digit:]')
+
+    PLUGIN_TIMEOUT="--max-time ${PLUGIN_TIMEOUT}"
 fi
 
 # Set PLUGIN_ATTEMPTS to one if nothing else is specified
