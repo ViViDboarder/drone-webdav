@@ -30,6 +30,12 @@ pipeline:
         target: PLUGIN_PASSWORD
 ```
 
+## FAQ
+
+#### How do I upload multiple files at once?
+Since this script uses **curl** to upload your files, you can use it's corresponding syntax.<br>
+An example, taken from the official [documentation](https://curl.haxx.se/docs/manpage.html#-T), would be to pass ``{dogs.png,cats.jpg}`` to ``PLUGIN_FILE``.
+
 ## Customization
 
 The following environment variables can be used for further cutomization:
@@ -39,4 +45,4 @@ The following environment variables can be used for further cutomization:
 | ``PLUGIN_PROXY_URL``        | May be used to specify a proxy (e.g. ``socks5://{ip_address}:{port}``)                                   |
 | ``PLUGIN_TIMEOUT``          | Defines a timeout (in seconds) to stop the upload after a certain time.                                  |
 | ``PLUGIN_ATTEMPTS``         | Defines how often a failed upload should be retried. Normally there is only one upload attempt.          |
-| ``PLUGIN_CUSTOM_ARGUMENTS`` | Additional arguments to be passed to `curl`.                                                                      |
+| ``PLUGIN_CUSTOM_ARGUMENTS`` | Additional arguments to be passed to `curl`.                                                             |
