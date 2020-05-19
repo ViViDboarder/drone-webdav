@@ -1,10 +1,10 @@
-.PHONY: clean all
+.PHONY: clean
 
 .PHONY: default
 default: test
 
 .PHONY: test
-test: check
+test:
 	docker-compose -f ./tests/docker-compose-private.yml up \
 		--build --force-recreate \
 		--abort-on-container-exit --exit-code-from plugin
@@ -18,3 +18,6 @@ install-hooks:
 .PHONY: check
 check:
 	pre-commit run --all-files
+
+.PHONY: all
+all: test check
