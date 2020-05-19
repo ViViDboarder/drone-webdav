@@ -1,31 +1,31 @@
 #! /bin/sh
 
 # Use WEBDAV_USERNAME as default, if provided.
-if [ -z "$PLUGIN_USERNAME" ] && [ ! -z "$WEBDAV_USERNAME" ]; then
+if [ -z "$PLUGIN_USERNAME" ] && [ -n "$WEBDAV_USERNAME" ]; then
 
     PLUGIN_USERNAME="$WEBDAV_USERNAME"
 fi
 
 # Use WEBDAV_PASSWORD as default, if provided.
-if [ -z "$PLUGIN_PASSWORD" ] && [ ! -z "$WEBDAV_PASSWORD" ]; then
+if [ -z "$PLUGIN_PASSWORD" ] && [ -n "$WEBDAV_PASSWORD" ]; then
 
     PLUGIN_PASSWORD="$WEBDAV_PASSWORD"
 fi
 
 # If username and password are provided, add auth
-if [ ! -z "$PLUGIN_USERNAME" ] && [ ! -z "$PLUGIN_PASSWORD" ]; then
+if [ -n "$PLUGIN_USERNAME" ] && [ -n "$PLUGIN_PASSWORD" ]; then
 
-    AUTH="--user '${PLUGIN_USERNAME}':'${PLUGIN_PASSWORD}'"
+    AUTH="--user '${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}'"
 fi
 
 # Use a proxy, if one is specified
-if [ ! -z "$PLUGIN_PROXY_URL" ]; then
+if [ -n "$PLUGIN_PROXY_URL" ]; then
 
     PLUGIN_PROXY_URL="--proxy '${PLUGIN_PROXY_URL}'"
 fi
 
 # If a timeout is specified, make use of it.
-if [ ! -z "$PLUGIN_TIMEOUT" ]; then
+if [ -n "$PLUGIN_TIMEOUT" ]; then
 
     PLUGIN_TIMEOUT="--max-time '${PLUGIN_TIMEOUT}'"
 fi
@@ -55,6 +55,7 @@ while [ "${PLUGIN_ATTEMPTS}" -gt 0 ]; do
 
     }
 
+    sleep 5
     PLUGIN_ATTEMPTS=$((PLUGIN_ATTEMPTS-1))
 
 done

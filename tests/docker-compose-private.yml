@@ -1,0 +1,21 @@
+---
+version: '2.4'
+services:
+  webdav:
+    image: sashgorokhov/webdav
+    environment:
+      USERNAME: jdoe
+      PASSWORD: hunter2
+
+  plugin:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    volumes:
+      - './test.txt:/test.txt'
+    environment:
+      PLUGIN_FILE: '/test.txt'
+      PLUGIN_DESTINATION: 'http://webdav/'
+      PLUGIN_USERNAME: jdoe
+      PLUGIN_PASSWORD: hunter2
+      PLUGIN_ATTEMPTS: 4
