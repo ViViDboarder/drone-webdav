@@ -15,7 +15,11 @@ fi
 # If username and password are provided, add auth
 if [ ! -z "$PLUGIN_USERNAME" ] && [ ! -z "$PLUGIN_PASSWORD" ]; then
 
-    AUTH="--user '${PLUGIN_USERNAME}':'${PLUGIN_PASSWORD}'"
+    #escape
+    PLUGIN_USERNAME=$(echo ${PLUGIN_USERNAME} | tr -d ';`()')
+    PLUGIN_PASSWORD=$(echo ${PLUGIN_PASSWORD} | tr -d ';`()')
+
+    AUTH="--user ${PLUGIN_USERNAME}:${PLUGIN_PASSWORD}"
 fi
 
 # Use a proxy, if one is specified
