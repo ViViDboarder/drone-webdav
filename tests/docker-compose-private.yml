@@ -18,4 +18,5 @@ services:
       PLUGIN_DESTINATION: 'http://webdav/'
       PLUGIN_USERNAME: jdoe
       PLUGIN_PASSWORD: hunter2
+      PLUGIN_TIMEOUT: 10
       PLUGIN_ATTEMPTS: 4

@@ -13,4 +13,5 @@ services:
     environment:
       PLUGIN_FILE: '/test.txt'
       PLUGIN_DESTINATION: 'http://webdav/'
+      PLUGIN_TIMEOUT: 10
       PLUGIN_ATTEMPTS: 4
