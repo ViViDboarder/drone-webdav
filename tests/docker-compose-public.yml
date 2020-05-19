@@ -1,0 +1,17 @@
+---
+version: '2.4'
+services:
+  webdav:
+    image: sashgorokhov/webdav
+
+  plugin:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    volumes:
+      - './test.txt:/test.txt'
+    environment:
+      PLUGIN_FILE: '/test.txt'
+      PLUGIN_DESTINATION: 'http://webdav/'
+      PLUGIN_TIMEOUT: 10
+      PLUGIN_ATTEMPTS: 4

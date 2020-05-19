@@ -46,3 +46,12 @@ The following environment variables can be used for further cutomization:
 | ``PLUGIN_TIMEOUT``          | Defines a timeout (in seconds) to stop the upload after a certain time.                                  |
 | ``PLUGIN_ATTEMPTS``         | Defines how often a failed upload should be retried. Normally there is only one upload attempt.          |
 | ``PLUGIN_CUSTOM_ARGUMENTS`` | Additional arguments to be passed to `curl`.                                                             |
+
+
+## Development
+
+There are only two tests right now and they are configured using Docker Compose. To run them, just use
+
+    make test
+
+If someone wants to make this better (or add a Drone file) I'd gladly accept the patch.
