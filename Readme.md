@@ -12,8 +12,8 @@ pipeline:
     settings:
       file: com.vividboarder.otbeta/build/outputs/apk/com.vividboarder.otbeta-debug.apk
       destination: https://my.nextcloud.com/remote.php/dav/files/vividboarder/Android/Apks/
-    user: myusername
-    password: mypassword
+      user: myusername
+      password: mypassword
 ```
 
 You probably don't want to check your credentials into your repo, so you may use secrets for this:
