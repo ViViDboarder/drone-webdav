@@ -12,9 +12,9 @@ services:
       context: ../
       dockerfile: Dockerfile
     volumes:
-      - './test.txt:/test.txt'
+      - '.:/test'
     environment:
-      PLUGIN_FILE: '/test.txt'
+      PLUGIN_FILE: '/test/test{1,2}.txt'
       PLUGIN_DESTINATION: 'http://webdav/'
       PLUGIN_USERNAME: jdoe
       PLUGIN_PASSWORD: hunter2
