@@ -37,7 +37,7 @@ fi
 while [ "${PLUGIN_ATTEMPTS}" -gt 0 ]; do
 
     # Uploading the file
-    curl "${ARGS[@]}" --upload-file "$PLUGIN_FILE" "$PLUGIN_DESTINATION" && {
+    curl --fail-with-body --show-error --silent "${ARGS[@]}" --upload-file "$PLUGIN_FILE" "$PLUGIN_DESTINATION" && {
         # Terminate the script as soon as the upload is successful
     echo "[INFO] Upload was successful."
     exit 0

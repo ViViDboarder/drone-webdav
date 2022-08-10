@@ -1,8 +1,8 @@
 ---
-version: '2.4'
+version: '3'
 services:
   webdav:
-    image: sashgorokhov/webdav
+    image: bytemark/webdav
     environment:
       USERNAME: jdoe
       PASSWORD: hunter2
