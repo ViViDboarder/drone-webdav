@@ -19,6 +19,7 @@ env:
   REGISTRY_USERNAME: vividboarder
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
+  PLATFORMS: linux/amd64,linux/arm,linux/arm64
 
 jobs:
   build:
@@ -87,7 +88,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: ${{ steps.buildx.outputs.platforms }}
+          platforms: ${{ env.PLATFORMS }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
