@@ -1,5 +1,6 @@
 # drone-webdav
-A WebDAV plugin, for the drone.io project, which allows you to push build artifacts to any WebDAV server, including Nextcloud or ownCloud.
+
+A [Drone CI](https://www.drone.io/) / [Woodpecker CI](https://woodpecker-ci.org/) plugin, that will allow pushing build artifacts to any WebDAV server, including Nextcloud or ownCloud.
 
 ## Examples
 
@@ -33,9 +34,10 @@ pipeline:
 
 ## FAQ
 
-#### How do I upload multiple files at once?
-Since this script uses **curl** to upload your files, you can use it's corresponding syntax.<br>
-An example, taken from the official [documentation](https://curl.haxx.se/docs/manpage.html#-T), would be to pass ``{dogs.png,cats.jpg}`` to ``PLUGIN_FILE``.
+### How do I upload multiple files at once?
+
+Since this script uses **curl** to upload your files, you can use it's corresponding syntax.  
+An example, taken from the official [documentation](https://curl.se/docs/manpage.html#-T), would be to pass ``{dogs.png,cats.jpg}`` to ``PLUGIN_FILE``.
 
 ## Customization
 
@@ -48,11 +50,12 @@ The following environment variables can be used for further cutomization:
 | ``PLUGIN_ATTEMPTS``         | Defines how often a failed upload should be retried. Normally there is only one upload attempt.          |
 | ``PLUGIN_CUSTOM_ARGUMENTS`` | Additional arguments to be passed to `curl`.                                                             |
 
-
 ## Development
 
 There are only two tests right now and they are configured using Docker Compose. To run them, just use
 
-    make test
+```sh
+make test
+```
 
 If someone wants to make this better (or add a Drone file) I'd gladly accept the patch.
