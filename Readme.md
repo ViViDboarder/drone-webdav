@@ -25,11 +25,10 @@ pipeline:
     settings:
       file: com.vividboarder.otbeta/build/outputs/apk/com.vividboarder.otbeta-debug.apk
       destination: https://my.nextcloud.com/remote.php/dav/files/vividboarder/Android/Apks/
-    secrets:
-      - source: WEBDAV_USER
-        target: PLUGIN_USERNAME
-      - source: WEBDAV_PASSWORD
-        target: PLUGIN_PASSWORD
+      user:
+        from_secret: WEBDAV_USER
+      password:
+        from_secret: WEBDAV_PASSWORD
 ```
 
 ## FAQ
