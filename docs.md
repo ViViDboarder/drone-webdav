@@ -24,7 +24,7 @@ that will allow pushing build artifacts to any [WebDAV](http://www.webdav.org/) 
 | ------------------ |--------- | --------------------------------------------
 | `file`             | **✓**    | File(s) to upload. Use [curl syntax](https://curl.se/docs/manpage.html#-T) for multiple (e.g. `{dogs.png,cats.jpg}`)
 | `destination`      | **✓**    | The WebDav **folder** url
-| `user`             | **✓**    | The WebDav-**User** to use
+| `username`         | **✓**    | The WebDav-**User** to use
 | `password`         |          | The **Password** for the WebDav-User
 | `proxy_url`        |          | May be used to specify a proxy (e.g. `socks5://{ip_address}:{port}`
 | `timeout`          |          | Defines a timeout (in seconds) to stop the upload after a certain time
@@ -40,7 +40,7 @@ pipeline:
     settings:
       file: com.vividboarder.otbeta/build/outputs/apk/com.vividboarder.otbeta-debug.apk
       destination: https://my.nextcloud.com/remote.php/dav/files/vividboarder/Android/Apks/
-      user:
+      username:
         from_secret: WEBDAV_USER
       password:
         from_secret: WEBDAV_PASSWORD
