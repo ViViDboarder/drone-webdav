@@ -28,6 +28,11 @@ if [ -n "$PLUGIN_TIMEOUT" ]; then
   ARGS+=(--max-time "${PLUGIN_TIMEOUT}")
 fi
 
+# Additional arguments to be passed to curl.
+if [ -n "$PLUGIN_CUSTOM_ARGUMENTS" ]; then
+  ARGS+=("${PLUGIN_CUSTOM_ARGUMENTS}")
+fi
+
 # Set PLUGIN_ATTEMPTS to one if nothing else is specified
 if [ -z "$PLUGIN_ATTEMPTS" ]; then
   PLUGIN_ATTEMPTS=1
