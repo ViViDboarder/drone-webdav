@@ -1,6 +1,6 @@
-FROM alpine:3.16
+FROM alpine:3.17
 
-RUN apk --no-cache add bash=~5.1 curl=~7.83 ca-certificates=~20220614
+RUN apk --no-cache add bash=~5 curl=~8 ca-certificates=~20230506
 COPY push.sh /bin/
 RUN chmod +x /bin/push.sh
 
