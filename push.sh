@@ -30,7 +30,7 @@ fi
 
 # Additional arguments to be passed to curl.
 if [ -n "$PLUGIN_CUSTOM_ARGUMENTS" ]; then
-  ARGS+=("${PLUGIN_CUSTOM_ARGUMENTS}")
+  while read arg; do ARGS+=("$arg"); done <<(echo ${PLUGIN_CUSTOM_ARGUMENTS} | tr ' ' '\n' )
 fi
 
 # Set PLUGIN_ATTEMPTS to one if nothing else is specified
