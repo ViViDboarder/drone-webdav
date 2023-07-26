@@ -36,8 +36,16 @@ fi
 # Repeat the upload as long as specified.
 while [ "${PLUGIN_ATTEMPTS}" -gt 0 ]; do
 
-    # Uploading the file
-    curl --fail-with-body --show-error --silent "${ARGS[@]}" --upload-file "$PLUGIN_FILE" "$PLUGIN_DESTINATION" && {
+    # Uploading the file 
+    # shellcheck disable=SC2086
+    curl \
+      $PLUGIN_CUSTOM_ARGUMENTS \
+      --fail-with-body \
+      --show-error \
+      --silent \
+      "${ARGS[@]}" \
+      --upload-file "$PLUGIN_FILE" \
+      "$PLUGIN_DESTINATION" && {
         # Terminate the script as soon as the upload is successful
     echo "[INFO] Upload was successful."
     exit 0
