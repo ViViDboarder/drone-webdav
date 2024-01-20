@@ -1,8 +1,7 @@
 ---
 name: WebDAV
-
 description: plugin to publish any artifacts to any WebDAV server
-authors: vividboarder
+author: vividboarder
 tags: [deploy, publish]
 containerImage: vividboarder/drone-webdav
 containerImageUrl: https://hub.docker.com/r/vividboarder/drone-webdav
